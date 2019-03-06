@@ -1605,11 +1605,7 @@ var index = {
 };
 
 function init(config, watch, options) {
-  var keycloak$$1 = keycloak({
-    'realm': config['authRealm'],
-    'url': config['authUrl'],
-    'clientId': config['authClientId']
-  });
+  var keycloak$$1 = keycloak(config);
 
   watch.$once('ready', function (cb) {
     cb && cb();
@@ -1632,7 +1628,7 @@ function init(config, watch, options) {
     watch.logoutFn = function () {
       clearInterval(updateTokenInterval);
       keycloak$$1.logout({
-        'redirectUri': config['logoutRedirectUri']
+        'redirectUri': options.logoutRedirectUri
       });
     };
   };

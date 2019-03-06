@@ -45,11 +45,7 @@ export default {
 }
 
 function init (config, watch, options) {
-  const keycloak = Keycloak({
-    'realm': config['authRealm'],
-    'url': config['authUrl'],
-    'clientId': config['authClientId']
-  })
+  const keycloak = Keycloak(config)
 
   watch.$once('ready', function (cb) {
     cb && cb()
@@ -70,7 +66,7 @@ function init (config, watch, options) {
     watch.logoutFn = () => {
       clearInterval(updateTokenInterval)
       keycloak.logout({
-        'redirectUri': config['logoutRedirectUri']
+        'redirectUri': options.logoutRedirectUri
       })
     }
   }
