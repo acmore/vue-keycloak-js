@@ -1656,7 +1656,7 @@ function init(config, watch, options) {
     if (isAuthenticated) {
       watch.token = keycloak$$1.token;
       watch.userName = keycloak$$1.tokenParsed['preferred_username'];
-      watch.fullName = keycloak$$1.tokenParsed['name'];
+      watch.fullName = keycloak$$1.tokenParsed['fullname'];
     }
   }
 }

@@ -88,7 +88,7 @@ function init (config, watch, options) {
     if (isAuthenticated) {
       watch.token = keycloak.token
       watch.userName = keycloak.tokenParsed['preferred_username']
-      watch.fullName = keycloak.tokenParsed['name']
+      watch.fullName = keycloak.tokenParsed['fullname']
     }
   }
 }
