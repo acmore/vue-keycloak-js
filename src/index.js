@@ -25,7 +25,8 @@ export default {
           logoutFn: null,
           loginFn: null,
           createLoginUrl: null,
-          createLogoutUrl: null
+          createLogoutUrl: null,
+          parsedToken: null,
         }
       }
     })
@@ -89,6 +90,7 @@ function init (config, watch, options) {
       watch.token = keycloak.token
       watch.userName = keycloak.tokenParsed['preferred_username']
       watch.fullName = keycloak.tokenParsed['fullname']
+      watch.parsedToken = keycloak.tokenParsed
     }
   }
 }

@@ -1,4 +1,4 @@
-/* vue-keycloak-js v1.0.8 */
+/* vue-keycloak-js v1.0.9 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -1591,7 +1591,8 @@ var index = {
           logoutFn: null,
           loginFn: null,
           createLoginUrl: null,
-          createLogoutUrl: null
+          createLogoutUrl: null,
+          parsedToken: null
         };
       }
     });
@@ -1657,6 +1658,7 @@ function init(config, watch, options) {
       watch.token = keycloak$$1.token;
       watch.userName = keycloak$$1.tokenParsed['preferred_username'];
       watch.fullName = keycloak$$1.tokenParsed['fullname'];
+      watch.parsedToken = keycloak$$1.tokenParsed;
     }
   }
 }
